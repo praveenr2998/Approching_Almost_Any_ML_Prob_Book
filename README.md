@@ -1,2 +1,3 @@
-# Approching_Almost_Any_ML_Prob_Book
-Code Implementation Of The Book - Approaching Almost Any Machine Learning Problem
+# Approching Almost Any Machine Learning Problem Book
+
+While studying NLP from this book I thought of practising it at the same time, so here is a repo which I maintain the code implementation.
