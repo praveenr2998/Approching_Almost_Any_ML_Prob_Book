@@ -11,3 +11,5 @@
 | [Fasttext Custom Vector Generating Model](https://github.com/praveenr2998/Approching_Almost_Any_ML_Prob_Book/blob/main/NLP/fasttext_custom_model/fasttext_vector_generating_model.py) | How to use fasttext to vectorize your dataset - Custom |
 | [Logistic Regression - Fasttext](https://github.com/praveenr2998/Approching_Almost_Any_ML_Prob_Book/blob/main/NLP/fasttext_custom_model/lr_fasttext.py) | Logistic Regression Using Fasttext vectors |
 
+| [LSTM](https://github.com/praveenr2998/Approching_Almost_Any_ML_Prob_Book/tree/main/NLP/LSTM) | How a neural network with LSTM layers is impleemented for classification problem |
+
