@@ -1,0 +1,46 @@
+'''
+PyTorch is a popular open-source machine learning library that provides a range of functionalities to develop and train deep learning models. PyTorch LSTM (Long Short-Term Memory) layer is a type of recurrent neural network layer that is used for sequential data modeling.
+
+An LSTM layer is a type of RNN layer that addresses the vanishing gradient problem by using memory cells that can store and retrieve information over long periods. This allows the network to retain important information from the previous inputs and use it to make better predictions.
+
+The PyTorch LSTM layer has several parameters that can be adjusted to customize its behavior:
+
+input_size: The number of expected features in the input.
+hidden_size: The number of features in the hidden state.
+num_layers: The number of LSTM layers stacked on top of each other.
+bias: Whether or not to use bias weights in the layer.
+batch_first: Whether the input and output tensors should have batch size as the first dimension.
+dropout: The probability of dropping a neuron during training, to prevent overfitting.
+bidirectional: Whether to use a bidirectional LSTM, which processes the input sequence in both forward and backward directions.
+The PyTorch LSTM layer takes an input tensor of shape (sequence_length, batch_size, input_size) or (batch_size, sequence_length, input_size) depending on the batch_first parameter, where sequence_length is the length of the input sequence. It returns an output tensor of shape (sequence_length, batch_size, hidden_size*num_directions) or (batch_size, sequence_length, hidden_size*num_directions) where num_directions is 2 if bidirectional is True, and 1 otherwise. It also returns the final hidden state and cell state, which can be used for subsequent predictions.
+
+Here is an example of how to define and use an LSTM layer in PyTorch:
+'''
+import torch
+import torch.nn as nn
+
+input_size = 10
+hidden_size = 20
+num_layers = 2
+batch_size = 3
+sequence_length = 5
+
+lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True, bidirectional=True)
+
+# Generate some random input data
+input_data = torch.randn(batch_size, sequence_length, input_size)
+
+# Pass the input data through the LSTM layer
+output, (hidden_state, cell_state) = lstm(input_data)
+
+print(output.shape)          # (3, 5, 40)
+print(hidden_state.shape)    # (4, 3, 20)
+print(cell_state.shape)      # (4, 3, 20)
+
+
+'''
+In this example, we define an LSTM layer with input_size=10, hidden_size=20, num_layers=2, and bidirectional=True. 
+We generate some random input data of shape (3, 5, 10) and pass it through the LSTM layer. The output tensor 
+has shape (3, 5, 40) because hidden_size*num_directions is equal to 40. The final hidden state and cell state have shapes (4, 3, 20) 
+because there are 4 hidden states and cell states (2 directions * 2 layers) and 3 samples in the batch.
+'''
