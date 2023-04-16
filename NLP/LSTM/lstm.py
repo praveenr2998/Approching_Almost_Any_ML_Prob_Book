@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 
+# Model Architecture
 class LSTM(nn.Module):
     def __init__(self, embedding_matrix):
         super(LSTM, self).__init__()
@@ -21,14 +22,18 @@ class LSTM(nn.Module):
         self.out = nn.Linear(512, 1)
 
     def forward(self, x):
+        # [8, 128]
         x = self.embedding(x)
+        # [8, 128, 100]
         x, _ = self.lstm(x)
-
+        # [8, 128, 256]
         avg_pool = torch.mean(x, 1)
+        # [8, 256]
         max_pool, _ = torch.max(x, 1)
-
+        # [8, 256]
         out = torch.cat((avg_pool, max_pool), 1)
-
+        # [8, 512]
         out = self.out(out)
+        # [8, 1]
 
         return out

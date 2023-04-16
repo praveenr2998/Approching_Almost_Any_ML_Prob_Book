@@ -1,5 +1,6 @@
 import torch
 
+# dataset class used to convert to the desired format
 class IMDBDataset:
     def __init__(self, reviews, targets):
         self.reviews = reviews

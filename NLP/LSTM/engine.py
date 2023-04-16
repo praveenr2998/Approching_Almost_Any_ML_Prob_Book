@@ -2,6 +2,18 @@ import torch
 import torch.nn as nn
 
 def train(data_loader, model, optimizer, device):
+    '''
+    This function is used to train the model
+
+    INPUT
+    data_loader : Object - The train data loader is passed
+    model       : Object - Pytorch model
+    optimizer   : Object - Optimizer
+    device      : Object - Torch device - CPU/GPU
+
+    RETUNS
+    None
+    '''
     model.train()
 
     for data in data_loader:
@@ -23,6 +35,17 @@ def train(data_loader, model, optimizer, device):
         optimizer.step()
 
 def evaluate(data_loader, model, device):
+    '''
+    This function is used to evaluate the model
+
+    INPUT
+    data_loader : Object - The validation data loader is passed
+    model       : Object - Pytorch model
+    device      : Object - Torch device - CPU/GPU
+
+    RETUNS
+    None
+    '''
     final_predictions = []
     final_targets = []
 
