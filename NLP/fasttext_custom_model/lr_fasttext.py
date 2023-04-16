@@ -12,11 +12,33 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def load_vector_generating_model(model):
+    '''
+    This functions is used to load the pretrained fasttext model which is used to vectorize text
+    
+    INPUT
+    model : String - path where model is stored
+    
+    RETURNS
+    fasttext model
+    '''
+
     model = fasttext.load_model(model)
     return model
 
 
 def sentence_to_vec(s, vector_model, stop_words, tokenizer):
+    '''
+    This function is used to convert sentence to vector
+
+    INPUT
+    s            : String - Sentence
+    vector model : Object - vector generating model
+    stop_words   : List - list containing the desired stop words to be removed before vectorising
+    tokenizer    : Object - Tokenizer used to tokenize words/sentences
+
+    RETURNS
+    Sentence vector
+    '''
     words = str(s).lower()
     words = tokenizer(words)
     words = [w for w in words if not w in stop_words]
